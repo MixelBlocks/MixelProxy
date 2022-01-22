@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.mixelblocks.proxy</groupId>
+    <artifactId>mixel-proxy</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <issueManagement>
+        <system>GitHub Issue Tracker</system>
+        <url>https://github.com/MixelBlocks/MixelProxy/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>LuciferMorningstarDev</id>
+            <name>Lucifer Morningstar</name>
+            <email>admin@mixelblocks.de</email>
+            <roles>
+                <role>Head - Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+
+        <maven.deploy.skip>true</maven.deploy.skip>
+
+        <velocity.version>3.0.0</velocity.version>
+
+        <mongo.version>4.3.3</mongo.version>
+        <jedis.version>4.0.1</jedis.version>
+
+        <jda.version>3.0.0</jda.version>
+
+        <luckperms.version>5.3</luckperms.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>velocity</id>
+            <url>https://repo.velocitypowered.com/snapshots/</url>
+        </repository>
+        <repository>
+            <id>dv8tion</id>
+            <url>https://m2.dv8tion.net/releases</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven-snapshots</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <modules>
+        <module>proxy-api</module>
+        <module>proxy-plugin</module>
+    </modules>
+
+</project>
