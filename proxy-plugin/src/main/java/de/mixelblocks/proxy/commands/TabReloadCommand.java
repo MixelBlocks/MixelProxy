@@ -24,7 +24,8 @@ public class TabReloadCommand implements RawCommand {
         if (args.length > 0) {
             if (args[0].equals("restart")) {
                 TabListTimerHandler.STOP = true;
-                new Timer().scheduleAtFixedRate(
+                Timer t = new Timer();
+                t.scheduleAtFixedRate(
                         new TabListTimerHandler(MixelProxyPlugin.getInstance()),
                         MixelProxyPlugin.getInstance().getTabListConfig().get().getUpdateDelay(),
                         MixelProxyPlugin.getInstance().getTabListConfig().get().getUpdateDelay()

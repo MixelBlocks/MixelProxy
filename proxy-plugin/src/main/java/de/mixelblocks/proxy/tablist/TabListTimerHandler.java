@@ -18,7 +18,7 @@ public class TabListTimerHandler extends TimerTask {
 
     public static boolean STOP = false;
 
-    private final MixelProxyPlugin plugin;
+    private static MixelProxyPlugin plugin;
 
     public TabListTimerHandler(MixelProxyPlugin plugin) {
         this.plugin = plugin;
@@ -31,11 +31,18 @@ public class TabListTimerHandler extends TimerTask {
             STOP = false;
             return;
         }
+        updateTab();
+    }
 
+    public MixelProxyPlugin getPlugin() {
+        return plugin;
+    }
+
+    public static void updateTab() {
         try {
             if(plugin.getServer().getAllPlayers().size() < 1) return;
             for (Player currentPlayerToProcess : plugin.getServer().getAllPlayers()) {
-                if (plugin.getTabListConfig().get().getAllowedServers().contains(currentPlayerToProcess.getCurrentServer())) {
+                if (plugin.getTabListConfig().get().getAllowedServers().contains(currentPlayerToProcess.getCurrentServer().get().getServerInfo().getName())) {
                     List<UUID> toKeep = new ArrayList<UUID>();
                     for (int i2 = 0; i2 < plugin.getServer().getPlayerCount(); i2++) {
                         Player currentPlayer = (Player) plugin.getServer().getAllPlayers().toArray()[i2];
@@ -73,11 +80,7 @@ public class TabListTimerHandler extends TimerTask {
 
 
         } catch(Exception e) {
+            e.printStackTrace();
         }
-
-    }
-
-    public MixelProxyPlugin getPlugin() {
-        return plugin;
     }
 }

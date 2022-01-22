@@ -37,7 +37,7 @@ public class ProxyPingListener {
         final ServerPing.Builder builder = ping.asBuilder();
         builder.onlinePlayers(ping.getPlayers().get().getOnline());
 
-        if(false) {
+        if(plugin.getMaintenanceConfig().get().isActive()) {
             builder.maximumPlayers(0)
                     .version(new ServerPing.Version(ping.getVersion().getProtocol(),
                             "MixelBlocksMC-v1.16.5"))

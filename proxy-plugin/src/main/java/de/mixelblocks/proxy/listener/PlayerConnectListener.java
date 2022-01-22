@@ -10,6 +10,7 @@ import de.mixelblocks.proxy.MixelSerializer;
 import de.mixelblocks.proxy.punishments.BanType;
 import de.mixelblocks.proxy.punishments.BanUnit;
 import de.mixelblocks.proxy.punishments.Punishment;
+import de.mixelblocks.proxy.tablist.TabListTimerHandler;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
@@ -50,6 +51,18 @@ public class PlayerConnectListener {
                             + BanUnit.getRemainingTime(countedPunishment.get().getUnit(), System.currentTimeMillis(), countedPunishment.get().getExpiry()) + "\n" + "\n"
                             + "&cWenn du denkst dass dieser Bann ungerecht war, dann schaue doch auf unserem Discord &emixelblocks.de/discord &cvorbei oder sende ein Entbannungsantrag unter &ehttps://dash.mixelblocks.de/entbannung&c."
                             + "\n" + "\n" + "&c----------------" + MixelProxyPlugin.PREFIX + "&c----------------"
+            ));
+        }
+
+        TabListTimerHandler.updateTab();
+
+        if(plugin.getMaintenanceConfig().get().isActive() && !player.hasPermission("proxy.maintenance.join")) {
+            player.disconnect(MixelSerializer.sectionRGB.deserialize(
+                    MixelProxyPlugin.disconnectionScreenTop +
+                            "§cWir befinden uns aktuell im Wartungsmodus! Bitte versuche es später erneut." +
+                            "\n" +
+                            "§7Schau doch auch auf unserem §9Discord mixelblocks.de/discord §7vorbei." +
+                            MixelProxyPlugin.disconnectionScreenBottom
             ));
         }
 

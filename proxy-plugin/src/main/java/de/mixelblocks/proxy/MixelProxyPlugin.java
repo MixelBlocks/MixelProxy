@@ -92,7 +92,8 @@ public final class MixelProxyPlugin {
 
         getServer().getChannelRegistrar().register(new LegacyChannelIdentifier("GlobalTabList"));
 
-        new Timer().scheduleAtFixedRate(
+        Timer t = new Timer();
+        t.scheduleAtFixedRate(
                 new TabListTimerHandler(this),
                 tabListConfig.get().getUpdateDelay(),
                 tabListConfig.get().getUpdateDelay()

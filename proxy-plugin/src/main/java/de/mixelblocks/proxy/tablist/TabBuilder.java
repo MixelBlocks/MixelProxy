@@ -18,7 +18,7 @@ public class TabBuilder {
         raw = raw.replace("%prefix%", MixelProxyPlugin.api().perms().resolvePlayerGroupPrefix(player));
         raw = raw.replace("%suffix%", MixelProxyPlugin.api().perms().getSuffix(player));
         raw = raw.replace("%server%", getCurrentServer(player));
-        return MixelSerializer.unusualSectionRGB.deserialize(raw);
+        return MixelSerializer.ampersandRGB.deserialize(raw);
     }
 
     public static TextComponent formatCustomTab(String raw, Player player) {
@@ -35,7 +35,7 @@ public class TabBuilder {
         raw = raw.replace("%ip%", player.getRemoteAddress().toString());
         raw = raw.replace("%balance%", getBalance(player));
 
-        return  MixelSerializer.unusualSectionRGB.deserialize(raw);
+        return  MixelSerializer.ampersandRGB.deserialize(raw);
     }
 
     private static String getCurrentServer(Player player) {
