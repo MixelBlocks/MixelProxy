@@ -33,7 +33,7 @@ public class JsonConfig<T> implements Config {
 
     @Override
     public void load() throws IOException {
-        configuration = ConfigLoader.loadConfig(configurationClazz, dataFile);
+        if(dataFile.exists()) configuration = ConfigLoader.loadConfig(configurationClazz, dataFile);
     }
 
     @Override
