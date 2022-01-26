@@ -15,7 +15,7 @@ ___
 ## Commands
 
 - ### Globalchat
-    - Usage: `/globalchat [login/logout/toggle]` oder `/gc [login/logout/toggle]`; 
+    - Usage: `/globalchat [login/logout/toggle]` oder `/gc [login/logout/toggle]` 
     - Permission: `proxy.command.globalchat.login` und `proxy.command.globalchat.ignorecooldown`    
 
 - ### Tab
